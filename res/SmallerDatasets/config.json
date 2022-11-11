@@ -1,0 +1,69 @@
+{
+    "data":
+    {   
+        "sep": ",",
+        "label_column": -1,
+        "normalize": "False",
+        "start_offset": 0,
+        "dyclee": {
+            "hyperbox_fraction": 0.2,
+            "forgetting_method": {
+                "lib.pyclee.pyclee.forgetting.ExponentialForgettingMethod": {
+                    "lmbda": 0.02
+                }
+            }
+        }
+    },
+    "dynamo": {
+        "lookup_size": 4,
+        "drift_detection_threshold": 0.3422,
+        "limit_per_window": 17,
+        "wnd_moving_step": 4,
+        "consensus_func": {
+            "src.prediction_strategy.voting.consensus_functions.AverageVoting": {}
+        },
+        "divergence_metrics": [
+            "src.prediction_strategy.divergency.tests.DensestHyperboxDifference",
+            "src.prediction_strategy.divergency.tests.MeanDivergence"
+        ],
+        "trackers": [
+            "src.prediction_strategy.ensemble.trackers.BoxSizeProductTracker",
+            "src.prediction_strategy.ensemble.trackers.NormalizedBoxSizeTracker",
+            "src.prediction_strategy.ensemble.trackers.DifferenceBoxTracker",
+            "src.prediction_strategy.ensemble.trackers.NormalizedDifferenceBoxTracker"
+        ]
+    },
+    "eval_strategy": [
+        { 
+            "src.eval.metrics.Recall": {
+                "margin": 0
+            } 
+        },
+        {
+            "src.eval.metrics.Precision" : {
+                "margin": 0
+            }
+        },
+        {
+            "src.eval.metrics.F1Score": {
+                "margin": 0
+            }
+        },
+        {
+            "src.eval.metrics.MacroF1Score": {
+                "margin": 0
+            }
+        },
+        {
+            "src.eval.metrics.AUCPR": {
+                "margin": 0
+            }
+        },
+        {
+            "src.eval.metrics.InverseWeightedF1Score": {
+                "margin": 0
+            }
+        }
+    ]
+    
+}
