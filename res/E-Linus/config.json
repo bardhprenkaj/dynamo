@@ -34,23 +34,8 @@
         ]
     },
     "eval_strategy": [
-        { 
-            "src.eval.metrics.Recall": {
-                "margin": 0
-            } 
-        },
-        {
-            "src.eval.metrics.Precision" : {
-                "margin": 0
-            }
-        },
         {
             "src.eval.metrics.F1Score": {
-                "margin": 0
-            }
-        },
-        {
-            "src.eval.metrics.MacroF1Score": {
                 "margin": 0
             }
         },
@@ -60,7 +45,12 @@
             }
         },
         {
-            "src.eval.metrics.InverseWeightedF1Score": {
+            "src.eval.metrics.FalsePositiveRate": {
+                "margin": 0
+            }
+        },
+        {
+            "src.eval.metrics.FalseNegativeRate": {
                 "margin": 0
             }
         }
