@@ -73,9 +73,13 @@ class Precision(Metric):
     
 class Recall(Metric):
 
+    def __init__(self, margin: int = 0, pos_label: int = 1):
+        super().__init__(margin=margin)
+        self.pos_label = pos_label
+
     def calculate(self, y_true: np.array, y_pred: np.array) -> float:
         y_pred = super().transform_predictions(y_pred)
-        return recall_score(y_true, y_pred)
+        return recall_score(y_true, y_pred, pos_label=self.pos_label)
 
 class FBetaScore(Metric):
 
@@ -143,6 +147,7 @@ class AUCPR(Metric):
         super().__init__(margin=margin)
 
     def calculate(self, y_true: np.array, y_pred: np.array) -> float:
+        y_pred = super().transform_predictions(y_pred)
         precisions, recalls, _ = precision_recall_curve(y_true, y_pred)
         return auc(recalls, precisions)
 
@@ -154,6 +159,26 @@ class InverseWeightedF1Score(Metric):
 
 
     def calculate(self, y_true: np.array, y_pred: np.array) -> float:
+        y_pred = super().transform_predictions(y_pred)
         _, _, f, sup = precision_recall_fscore_support(y_true, y_pred)
         sup = sup / np.sum(sup)
         return f[0] * (1-sup[0]) + f[1] * (1-sup[1])
+    
+
+class FalsePositiveRate(Metric):
+
+    def __init__(self, margin: int = 0):
+        super().__init__(margin=margin)
+        self.recall = Recall(pos_label=0)
+
+    def calculate(self, y_true: np.array, y_pred: np.array) -> float:
+        return 1 - self.recall.calculate(y_true, y_pred)
+    
+class FalseNegativeRate(Metric):
+
+    def __init__(self, margin: int = 0):
+        super().__init__(margin=margin)
+        self.recall = Recall()
+
+    def calculate(self, y_true: np.array, y_pred: np.array) -> float:
+        return 1 - self.recall.calculate(y_true, y_pred)
