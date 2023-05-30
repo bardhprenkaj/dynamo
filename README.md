@@ -1,7 +1,8 @@
 # DynAmo
 
-The official PyTorch implementation of the arXiv Paper <b>Unsupervised Detection of Gradual Behavioural Drifts with Dynamic Clustering and Hyperbox Trajectory Evolution Monitoring
+The official implementation of the arXiv Paper <b>Unsupervised Detection of Gradual Behavioural Drifts with Dynamic Clustering and Hyperbox Trajectory Evolution Monitoring
 </b>
+
 Visit my webpage for more details
 
 ![DynAmo](dynamo.png?raw=true "DynAmo workflow")
@@ -62,6 +63,25 @@ Visit my webpage for more details
                 consensus_functions.py
                 __init__.py
 ```
+
+# Setup
+## Environment
+
+Build the docker image:
+```
+cd Docker
+docker build -f ./Dockerfile  -t <your_docker_repo>/dynamo:v0 .
+```
+
+Run the docker image:
+```
+docker run -it --rm --user $(id -u):$(id -g) --shm-size=1024M -v $PWD:/home/workspace <your_docker_repo>/dynamo:vo /bin/bash -c "cd /home/workspace/src && python3 main.py <configuration_file_path> <dataset_file_path> ./<output_file_name>.csv"
+```
+Example:
+```
+docker run -it --rm --user $(id -u):$(id -g) --shm-size=1024M -v $PWD:/home/workspace <your_docker_repo>/dynamo:vo /bin/bash -c "cd /home/workspace/src && python3 main.py ../res/E-Linus/config.json ../data/E-Linus/P1GD.csv ./P1GD_evaluation.csv"
+```
+
 
 # Citation
 Please use the following citation:
