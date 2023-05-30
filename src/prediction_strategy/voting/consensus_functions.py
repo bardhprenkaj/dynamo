@@ -1,10 +1,15 @@
 
 import abc
 from typing import Dict
+
 import numpy as np
 import pandas as pd
 
+
 class Consensus(abc.ABC):
+    
+    def __init__(self):
+        self.name = self.__class__.__name__
 
     @abc.abstractmethod
     def merge(self, votings: Dict[str, int]) -> int:

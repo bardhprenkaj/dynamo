@@ -8,7 +8,7 @@
         "dyclee": {
             "hyperbox_fraction": 0.2,
             "forgetting_method": {
-                "lib.pyclee.pyclee.forgetting.ExponentialForgettingMethod": {
+                "lib.pyclee.forgetting.ExponentialForgettingMethod": {
                     "lmbda": 0.02
                 }
             }
