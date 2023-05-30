@@ -61,7 +61,7 @@ class DynAmo:
 
 
     def __str__(self):
-        return f'DynAmo:\tℓ={self.limit_per_window},\n\tτ={self.lookup_size},\n\tδ={self.wnd_moving_step},\n\tς={self.drift_detection_threshold}'
+        return f'DynAmo:\tℓ={self.limit_per_window},\n\tλ={self.lookup_size},\n\tδ={self.wnd_moving_step},\n\tσ={self.drift_detection_threshold}'
 
     def run(self) -> List[int]:
         signal: np.array = self.signal
