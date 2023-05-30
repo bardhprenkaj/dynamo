@@ -87,6 +87,14 @@ docker run -it --rm --user $(id -u):$(id -g) --shm-size=1024M -v $PWD:/home/work
 
 Each dataset should have their own configuration files. In this repository, you'll find the E-Linus and SmallerDatasets JSON configuration files that setup DynAmo's execution according to the best hyperparameters reported in the paper.
 
+To write your configuration file, follow these steps:
+
+1. Create a JSON file under the ```res``` directory. E.g. ```cd res && mkdir <your_dataset_name> && cd <your_dataset_name> && touch config.json```
+2. The ```config.json``` file should must contain these 3 keys: ```data```, ```dynamo```, and ```eval_strategy```
+3. ```data``` contains the necessary information on how to process the dataset (e.g., where the label is situated) and the generation of the trajectory via the DyClee [1] method
+4. ```dynamo``` contains the necessary information to run DynAmo (e.g., ```lookup_size```, ```drift_detection_threshold```)
+5. ```eval_strategy``` contains a list of evaluation metrics that are used to measure the performance
+
 
 # Citation
 Please use the following citation:
