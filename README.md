@@ -95,6 +95,15 @@ To write your configuration file, follow these steps:
 4. ```dynamo``` contains the necessary information to run DynAmo (e.g., ```lookup_size```, ```drift_detection_threshold```)
 5. ```eval_strategy``` contains a list of evaluation metrics that are used to measure the performance
 
+We invite you to see ```../res/E-Linus/config.json``` for an example of a configuration file. Since DynAmo is a flexible framework, you can modify this configuration file according to your needs and domain adaptations.
+
+# Bayesian Optimisation
+If you wish to perform your own Bayesian optimisation - i.e., use custom hyperparamter search spaces - follow these steps:
+
+1. ```docker run -it --rm --user $(id -u):$(id -g) --shm-size=1024M -v $PWD:/home/workspace <your_docker_repo>/dynamo:v0 /bin/bash```
+2. ```cd /home/workspace/src/experiments```
+3. ```python3 optimize.py <path_to_config_file> <path_to_dataset_folder> --trial_num <trial_num> --timeout <timeout> --seed <seed> --drift_detection_threshold <two_comma_sep_values> --lookup_size <two_comma_sep_values> --limit_per_window <two_comma_sep_values> --window_moving_step <two_comma_sep_values>```
+4. In addition to the previous arguments, the ```optimize.py``` script can take the optional arguments ```--plot``` if you want to see plots of the hyperparamter optimisation history, and ```--store``` if you want to store the best average performances after the optimisation finishes
 
 # Citation
 Please use the following citation:
