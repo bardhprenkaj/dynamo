@@ -5,7 +5,7 @@ The official implementation of the arXiv Paper <b>Unsupervised Detection of Grad
 
 Visit my webpage for more details
 
-![DynAmo](dynamo.png?raw=true "DynAmo workflow")
+![DynAmo](dynamo.jpg?raw=true "DynAmo workflow")
 
 # Content
 ```
