@@ -97,6 +97,8 @@ To write your configuration file, follow these steps:
 
 We invite you to see ```../res/E-Linus/config.json``` for an example of a configuration file. Since DynAmo is a flexible framework, you can modify this configuration file according to your needs and domain adaptations.
 
+[1] Roa, N.B., Travé-Massuyès, L. and Grisales-Palacio, V.H., 2019. DyClee: Dynamic clustering for tracking evolving environments. Pattern Recognition, 94, pp.162-186.
+
 # Bayesian Optimisation
 If you wish to perform your own Bayesian optimisation - i.e., use custom hyperparamter search spaces - follow these steps:
 
@@ -104,6 +106,7 @@ If you wish to perform your own Bayesian optimisation - i.e., use custom hyperpa
 2. ```cd /home/workspace/src/experiments```
 3. ```python3 optimize.py <path_to_config_file> <path_to_dataset_folder> --trial_num <trial_num> --timeout <timeout> --seed <seed> --drift_detection_threshold <two_comma_sep_values> --lookup_size <two_comma_sep_values> --limit_per_window <two_comma_sep_values> --window_moving_step <two_comma_sep_values>```
 4. In addition to the previous arguments, the ```optimize.py``` script can take the optional arguments ```--plot``` if you want to see plots of the hyperparamter optimisation history, and ```--store``` if you want to store the best average performances after the optimisation finishes
+5. Not specifying the optional arguments (i.e., those with preceding ```--```) will execute the Bayesian optimisation as done in the paper.
 
 # Citation
 Please use the following citation:
@@ -115,3 +118,9 @@ Please use the following citation:
   year={2023}
 }
 ```
+
+# Contacts
+Ask <a href="mailto:bardhprenkaj95@gmail.com">bardhprenkaj95@gmail.com</a> for any doubts.
+
+# Acknowledgement
+We build upon <a href="https://github.com/harenbrs/pyclee">PyClee</a>.
