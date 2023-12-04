@@ -1,6 +1,6 @@
 # DynAmo
 
-The official implementation of the arXiv Paper <b>Unsupervised Detection of Gradual Behavioural Drifts with Dynamic Clustering and Hyperbox Trajectory Evolution Monitoring
+The official implementation of the IEEE TKDE Paper <b>Unsupervised Detection of Gradual Behavioural Drifts with Dynamic Clustering and Hyperbox Trajectory Evolution Monitoring
 </b>
 
 Visit my webpage for more details
@@ -111,11 +111,15 @@ If you wish to perform your own Bayesian optimisation - i.e., use custom hyperpa
 # Citation
 Please use the following citation:
 ```
-@article{prenkaj2023unsupervised,
-  title={Unsupervised Detection of Behavioural Drifts with Dynamic Clustering and Trajectory Analysis},
+@ARTICLE{10266686,
   author={Prenkaj, Bardh and Velardi, Paola},
-  journal={arXiv preprint arXiv:2302.06228},
-  year={2023}
+  journal={IEEE Transactions on Knowledge and Data Engineering}, 
+  title={Unsupervised Detection of Behavioural Drifts with Dynamic Clustering and Trajectory Analysis}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={1-14},
+  doi={10.1109/TKDE.2023.3320184}
 }
 ```
 
